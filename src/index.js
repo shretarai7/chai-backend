@@ -1,15 +1,18 @@
-// require ('dotenv).config({path: './env'})
-
+import dns from "dns";          // 👈 NEW
 import dotenv from "dotenv";
 import express from "express";
 import connectDB from "./db/index.js";
-import {app} from './app.js'
+import { app } from "./app.js";
 
 dotenv.config({
     path: "./.env"
 });
 
-//const app = express();
+// 👇 NEW
+dns.setServers([
+    "8.8.8.8",
+    "8.8.4.4"
+]);
 
 console.log("MONGODB_URI:", process.env.MONGODB_URI);
 
