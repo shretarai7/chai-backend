@@ -241,7 +241,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     refreshToken || req.body.refreshToken
     //if incomingrefreshtoken is not exists then we should write if condition
 
-    if(incomingRefreshToken) {
+    if(!incomingRefreshToken) {
         throw new ApiError(401, "unauthorized request")
     }
 
